@@ -30,7 +30,10 @@ form.addEventListener('submit',(e)=> {
         console.log("The class name for the input is >>>", className);
         console.log("The class attribute is>>>", inputNameAttribute);
 
-        validateField(className,inputNameAttribute);
+        const validated = validateField(className,inputNameAttribute);
+
+        if(validated)
+            input.value = '';
 
     });
 
@@ -57,11 +60,17 @@ const validateField = (selector,attribute) =>{
             errorEmailMessage.innerHTML = `
             <p>${attribute} cannot be empty</p>
             `
+            return false;
         }
         else if(!validateEmail(inputValue)){
+            const targetInput = document.querySelector(`.${selector}`);
+            console.log("The target input field >>>",targetInput);
+            targetInput.classList.add("error");
+
             errorEmailMessage.innerHTML = `
             <p>Looks like this is not an ${attribute}</p>
             `
+            return false;
         }
     }
 
@@ -76,6 +85,7 @@ const validateField = (selector,attribute) =>{
                 errorFirstMessage.innerHTML = `
                 <p>${attribute} cannot be empty</p>
                 `
+                return false;
             }
         if(targetInput.className === "lastName error")
             {
@@ -83,6 +93,7 @@ const validateField = (selector,attribute) =>{
                 errorLastMessage.innerHTML = `
                 <p>${attribute} cannot be empty</p>
                 `
+                return false;
             }
         if(targetInput.className === "password error")
             {
@@ -90,8 +101,11 @@ const validateField = (selector,attribute) =>{
                 errorPasswordMessage.innerHTML = `
                 <p>${attribute} cannot be empty</p>
                 `
+                return false;
             }
     }
+
+    return true;
 
 }
 
@@ -104,7 +118,7 @@ const validateEmail=(email)=>{
 
 ///Added event listeners to each input field to reset the errors in case they had some
 inputFields.forEach((input)=>{
-    input.addEventListener('keypress', ()=>{
+    input.addEventListener('input', ()=>{
         const inputClass = input.className;
         resetErrors(inputClass);
     })

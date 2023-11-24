@@ -162,26 +162,25 @@ use CSS to style it so that it notifies the user there is an error
   visibility: hidden;
 }
 ```
+
 7. I learned the difference between the array methods .map and .forEach
-    -.map() modifies each element based according to your liking and returns a new array
-    -.forEach() is used to do some kind of function to each element in an array.
-    However, it doesn't return an array.
-    -I used forEach to add an eventListener to each input field
-``````js
+   -.map() modifies each element based according to your liking and returns a new array
+   -.forEach() is used to do some kind of function to each element in an array.
+   However, it doesn't return an array.
+   -I used forEach to add an eventListener to each input field
 
-inputFields.forEach((input)=>{
-    input.addEventListener('keypress', ()=>{
-        const inputClass = input.className;
-        resetErrors(inputClass);
-    })
-
-})
-
-``````
+```js
+inputFields.forEach((input) => {
+  input.addEventListener("keypress", () => {
+    const inputClass = input.className;
+    resetErrors(inputClass);
+  });
+});
+```
 
 ### Continued development
 
-I still would like to focus on creating forms. I feel more comfortable now that 
+I still would like to focus on creating forms. I feel more comfortable now that
 I've done this project. I'd still like to learn what I do with the values that were
 input in the fields.
 
@@ -193,16 +192,15 @@ at once.
 ### Useful resources
 
 - [Chat GPT](https://chat.openai.com/) - I used Chat GPT whenever I was stuck on some
-problem. I used it to help me explain what the problem was and how to fix it.
+  problem. I used it to help me explain what the problem was and how to fix it.
 - [MDN Web Docs](https://developer.mozilla.org/en-US/) - I used this to help me explain
-certain array methods and other things about css i didnt understand
+  certain array methods and other things about css i didnt understand
 
 ## Author
 
 - Website - [Vernon Roque](https://developer-portfolio-8cc0c.web.app/)
 - Frontend Mentor - [@vernonroque](https://www.frontendmentor.io/profile/vernonroque)
 - Github - [@vernonroque](https://github.com/vernonroque)
-
 
 ## Acknowledgments
 
